@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="org.example.bean.Person">
+        <property name="name" value="zs"/>
+        <property name="age" value="13"/>
+    </bean>
+    <bean id="demoDao" class="org.example.dao.impl.DemoDaoImpl"/>
+    <bean id="cat" class="org.example.bean.Cat">
+        <property name="name" value="mm"/>
+        <property name="master" ref="person"/>
+    </bean>
+    <bean id="mysqlDao" class="org.example.dao.impl.DemoMysqlDao"/>
+    <bean id="oracleDao" class="org.example.dao.impl.DemoOracleDao"/>
+    <bean id="postgresDao" class="org.example.dao.impl.DemoPostgresDao"/>
+</beans>
