@@ -1,14 +1,9 @@
 package org.example;
 
-import org.example.bean.Cat;
-import org.example.bean.Person;
-import org.example.dao.DemoDao;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.ApplicationContext;
+import org.example.module.TavernProfileConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Hello world!
@@ -31,11 +26,17 @@ public class App
 //        ApplicationContext ctx = new ClassPathXmlApplicationContext("quickstart-bytype.xml");
 //        Map<String, DemoDao> beans = ctx.getBeansOfType(DemoDao.class);
 //        beans.forEach((beanName, bean) -> System.out.println(beanName + " : " + bean.toString()));
-        System.out.println("准备初始化IOC容器。。。");
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(
-                "org.example.event");
-        System.out.println("IOC容器初始化完成。。。");
-        ctx.close();
-        System.out.println("IOC容器关闭。。。");
+//        System.out.println("准备初始化IOC容器。。。");
+//        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext("org.example.event");
+//        System.out.println("IOC容器初始化完成。。。");
+//        ctx.close();
+//        System.out.println("IOC容器关闭。。。");
+//        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext("org.example.event");
+//        RegisterService registerService = ctx.getBean(RegisterService.class);
+//        registerService.register("张三");
+//        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(TavernConfiguration.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(TavernProfileConfiguration.class);
+        Stream.of(ctx.getBeanDefinitionNames()).forEach(System.out::println);
+
     }
 }
